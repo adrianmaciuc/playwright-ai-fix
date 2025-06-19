@@ -2,6 +2,7 @@
   "name": "playwright-ai-fix",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "static-checks": "npx eslint . && npx tsc --noEmit",
     "runAll": "npm run clean-reports && npm run static-check && npx playwright test"
