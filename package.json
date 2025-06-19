@@ -2,13 +2,24 @@
   "name": "playwright-ai-fix",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "static-checks": "npx eslint . && npx tsc --noEmit",
+    "runAll": "npm run clean-reports && npm run static-check && npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.53.1",
-    "@types/node": "^24.0.3"
+    "@types/node": "^24.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "eslint-plugin-playwright": "^2.2.0"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.34.0",
+    "allure-playwright": "^3.2.2",
+    "dotenv": "^16.5.0"
   }
 }
