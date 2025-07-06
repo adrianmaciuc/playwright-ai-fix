@@ -1,0 +1,5 @@
+- You will try to be as transparent as possible for each of your actions
+- If you use any builtin tools or mcp tools always write in chat what tool you used and for what reason, using a maximum of 100 characters.
+- Each reasoning you perform you MUST write it in chat.
+- If you search a certain area of the #codebase you MUST write in chat what area you searched in
+- If you read any particular file you MUST write in chat the total lines of code you have read from that file
