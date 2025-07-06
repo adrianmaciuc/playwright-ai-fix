@@ -31,3 +31,11 @@ This file contains instructions for running, writing and maintaining Playwright 
     - `page.screenshot()`
     - `locator.getAttribute()`
     - `test.step()`
+
+### Conclusion and final review
+- When you conclude and finish with your tasks, always ask the user if it wants one final review of the file
+    - if the user agrees for a final review 
+        1. say "I will reevaluate the modified test to see if it follows my custome guidelines"
+        2. analyze only the modified test and cross check with the rules set in this instructions file
+        3. if any discrepancies found inform the user about them if not just say "I'm done, all looks good"
+    - if the user does not want a final review just say "Great, thank you"

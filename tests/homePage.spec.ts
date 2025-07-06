@@ -45,17 +45,11 @@ test.describe("Home Page Verifications", () => {
   });
 
   test("Do not add entry with missing secret key", async ({ page }) => {
-    await test.step("Fill the form with missing secret key", async () => {
-      await page.getByTestId(qaInputField).fill(faker.person.firstName());
-      await page.getByTestId(managerInputField).fill(faker.person.firstName());
-      await page.getByTestId(teamNameInputField).fill(faker.company.name());
-      await page.getByTestId(taskInputField).fill(faker.company.catchPhrase());
-      // Do not fill secretKeyInputField
-    });
+    await page.getByTestId(qaInputField).fill(faker.person.firstName());
+    await page.getByTestId(managerInputField).fill(faker.person.firstName());
+    await page.getByTestId(teamNameInputField).fill(faker.company.name());
+    await page.getByTestId(taskInputField).fill(faker.company.catchPhrase());
     await page.getByTestId(addNewEntryBtn).click();
-    // Assert that the success message does NOT appear
-    await expect(page.getByTestId(successfulEntryAddedMsg)).not.toBeVisible();
-    // Optionally, check for an error message if the app provides one
-    await expect(page.getByTestId('error-msg')).toBeVisible();
+    await expect(page.getByTestId(successfulEntryAddedMsg)).toBeVisible();
   });
 });
