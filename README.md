@@ -58,3 +58,11 @@ To contribute:
 - Open a pull request against the `main` branch, describing your updates in detail  
 
 Thank you for helping improve our Playwright test suite!
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+The MIT License is a permissive open-source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. It also permits sublicensing and private use. The software is provided "as is", without warranty of any kind.
