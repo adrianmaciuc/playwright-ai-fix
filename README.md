@@ -1,30 +1,60 @@
-# Playwright Fix tests with AI
+# Playwright Test Fixing with AI
 
 ## Project Overview
 
-The project showcases how we can use `prompts.md` and `instructions.md` files for github copilot to try to fix playwright tests
+This repository demonstrates how to use GitHub Copilot in VS Code to automatically fix Playwright tests. It relies on two supporting file types—instruction files and prompt files—to guide the AI toward consistent, project-specific patterns.  
 
-## Understanding *.instructions.md files
+---
 
-VS Code Github copilot can use instructions files from inside folder `.github/instructions/*.instructions.md` automatically
-These files contain general instructions for how to write the code, from patterns, to style, to rules etc.
-You must specify inside the .md file for which files the instructions to apply by putting at the top of the file the following:
+## Instruction Files (`*.instructions.md`)
 
-```code-block
+Instruction files live in `.github/instructions/` and apply automatically when matching test files are opened in Copilot Chat or Agent mode. They define coding patterns, style rules, naming conventions, and other guidelines.
+
+### File Header Configuration
+
+Place the following YAML front matter at the top of your instruction file to scope its application:
+
+```yaml
 ---
 applyTo: tests/*.spec.ts
 ---
 ```
-Whenever you will have one of the files to which it applies to, dragged into copilot chat/agent mode, the instructions will apply automatically
 
-## Understanding *.prompt.md files
+Once configured, any file matching `tests/*.spec.ts` will inherit the rules in this instruction file whenever that spec file is dragged by you into Copilot chat or agent mode.
 
-VS Code Github copilot can use prompts files to tailor the output specifically for your needs. 
-It is advised to create prompt files per use case. For example create a prompt file for fixing tests.
-Folders are commonly agreed to be stored inside `.github/prompts/*.prompt.md`
-Prompt files are dragged into chat/agent mode per task. By default this file should be dragged once and it should remain in the session. However from my personal testing I realized that after some follow up direct prompts in chat the model tends to forget the initial prompt file so, once in a while I drag it again.
+---
 
+## Prompt Files (`*.prompt.md`)
 
-**Contributing**
+Prompt files tailor Copilot’s output to specific tasks—such as fixing failing tests or generating new test cases. They do not apply automatically; you drag them into the chat/agent session when you need them.
 
-To contribute, fork the repository, create a new branch, and submit a pull request to the main branch with a detailed description of your changes.
+### Recommended Workflow
+
+1. Create one prompt file per use case (e.g., `fix-tests.prompt.md`).  
+2. Store prompt files in `.github/prompts/`.  
+3. At the start of your session, drag the relevant prompt file into Copilot Chat or Agent mode.  
+4. If Copilot seems to lose context after follow-up messages, re-introduce the prompt file to reset its guidance.  
+
+---
+
+## Instruction vs. Prompt Files
+
+| Feature       | Instruction Files                   | Prompt Files                          |
+|---------------|-------------------------------------|---------------------------------------|
+| Location      | `.github/instructions/*.instructions.md` | `.github/prompts/*.prompt.md`         |
+| Activation    | Automatic for matching files       | Manual drag-in at session start       |
+| Scope         | Broad project-wide guidelines      | Specific task or use-case instructions |
+| Front Matter  | Must include `applyTo` property    | No front matter required             |
+
+---
+
+## Contributing
+
+To contribute:
+
+- Fork this repository  
+- Create a feature branch (e.g., `feature/add-new-instruction`)  
+- Commit your changes with clear messages  
+- Open a pull request against the `main` branch, describing your updates in detail  
+
+Thank you for helping improve our Playwright test suite!
